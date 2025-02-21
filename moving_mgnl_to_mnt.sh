@@ -2,18 +2,18 @@
 while [ true ]
 do
 
-basename=`head -1 /home/elemental/moving_mgnl_to_mnt/mgnl_to_mnt_moving.txt`
-l="/mnt/storage/transcoded/$basename/"
+basename=`head -1 /path/path.txt`
+l="/path/$basename/"
 if [ $basename != "" ];
 then
-sed -i "/$basename\b/d" /home/elemental/moving_mgnl_to_mnt/mgnl_to_mnt_moving.txt
+sed -i "/$basename\b/d" /path/path.txt
 
-mkdir /mnt/storage/transcoded/$basename
+mkdir /path/$basename
 echo "folder created in mnt storage on id no: $basename on `date`"
-b=`find /mnt/MGNL3/DIGITAL/SUNOTT/Elemental/transcoded/ -name "$basename.sd5.mp4"`
+b=`find path -name "$basename.sd5.mp4"`
 echo "$basename file founded and copying file on mgnl to mnt at `date` "
 cp "$b" $l
-echo " $basename sucessfully_copied_mnt `date` " >> /home/elemental/moving_mgnl_to_mnt/mnt_copied.log
+echo " $basename sucessfully_copied_mnt `date` " >> /path/copied.log
 echo "$basename file sucefully copied `date`"
 
 else
